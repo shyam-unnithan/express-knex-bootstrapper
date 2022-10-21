@@ -1,0 +1,30 @@
+{
+  "name": "express-knex-bootstrapper",
+  "version": "1.0.0",
+  "main": "app/app.js",
+  "author": "Shyam Unnithan",
+  "license": "MIT",
+  "scripts": {
+    "create-db": "knex --knexfile=config/knex.js migrate:latest",
+    "rollback-db": "knex --knexfile=config/knex.js migrate:rollback",
+    "run-seeds": "knex --knexfile=config/knex.js seed:run",
+    "init-db": "npm run rollback-db && npm run create-db && npm run update-db-record",
+    "run-server": "node app/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-timeout": "^1.9.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "4.17.3",
+    "express-validator": "^6.14.2",
+    "jsonwebtoken": "^8.5.1",
+    "knex": "^2.1.0",
+    "mysql2": "^2.3.3",
+    "objection": "^3.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.21.0"
+  }
+}
